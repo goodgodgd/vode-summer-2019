@@ -1,7 +1,6 @@
 import tensorflow as tf
 import numpy as np
 import cv2
-from google.colab.patches import cv2_imshow
 
 
 def load_data():
@@ -197,7 +196,8 @@ def test_synthesize_view():
     # cv2.imshow("synthesized", result)
     # cv2.waitKey()
     cv2.imwrite(f"samples/synthesized.jpg", result)
-    cv2_imshow(result)
+    from IPython.display import Image
+    Image('samples/synthesized.jpg')
 
 
 def test():
