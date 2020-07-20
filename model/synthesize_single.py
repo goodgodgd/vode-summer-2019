@@ -193,11 +193,9 @@ def test_synthesize_view():
     tgt_recon_image = synthesize_view(src_image, tgt_depth, t2s_pose, intrinsic)
 
     result = np.concatenate([src_image, tgt_recon_image, tgt_image], axis=1)
-    # cv2.imshow("synthesized", result)
-    # cv2.waitKey()
+    cv2.imshow("synthesized", result)
+    cv2.waitKey()
     cv2.imwrite(f"samples/synthesized.jpg", result)
-    from IPython.display import Image
-    Image('samples/synthesized.jpg')
 
 
 def test():
