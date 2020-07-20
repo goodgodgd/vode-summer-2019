@@ -1,7 +1,7 @@
 import tensorflow as tf
 import numpy as np
 import cv2
-import matplotlib.pyplot as plt
+from google.colab.patches import cv2_imshow
 
 
 def load_data():
@@ -193,12 +193,11 @@ def test_synthesize_view():
 
     tgt_recon_image = synthesize_view(src_image, tgt_depth, t2s_pose, intrinsic)
 
-    # cv2.imwrite(f"samples/synthesized.jpg", tgt_recon_image)
     result = np.concatenate([src_image, tgt_recon_image, tgt_image], axis=1)
     # cv2.imshow("synthesized", result)
     # cv2.waitKey()
-    plt.imshow(result)
-    plt.show()
+    cv2.imwrite(f"samples/synthesized.jpg", result)
+    cv2_imshow(result)
 
 
 def test():
