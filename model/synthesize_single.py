@@ -1,7 +1,7 @@
 import tensorflow as tf
 import numpy as np
 import cv2
-import quaternion
+import matplotlib.pyplot as plt
 
 
 def load_data():
@@ -193,17 +193,19 @@ def test_synthesize_view():
 
     tgt_recon_image = synthesize_view(src_image, tgt_depth, t2s_pose, intrinsic)
 
-    cv2.imwrite(f"samples/synthesized.jpg", tgt_recon_image)
+    # cv2.imwrite(f"samples/synthesized.jpg", tgt_recon_image)
     result = np.concatenate([src_image, tgt_recon_image, tgt_image], axis=1)
-    cv2.imshow("synthesized", result)
-    cv2.waitKey()
+    # cv2.imshow("synthesized", result)
+    # cv2.waitKey()
+    plt.imshow(result)
+    plt.show()
 
 
 def test():
     np.set_printoptions(precision=3, suppress=True)
-    test_pixel_meshgrid()
-    test_pixel2cam2pixel()
-    test_gather_nd()
+    # test_pixel_meshgrid()
+    # test_pixel2cam2pixel()
+    # test_gather_nd()
     test_synthesize_view()
 
 
